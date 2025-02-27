@@ -1,0 +1,12 @@
+
+# run the R script "plot_dose-response_spinach_multiplanel.R"
+R < plot_dose-response_spinach_multipanel.R --no-save
+
+
+
+# prepare spinach data file from DRC
+library(drc)
+> write.csv( spinach, "spinach.csv", row.names=FALSE)
+
+
+
