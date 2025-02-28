@@ -1,0 +1,9 @@
+
+
+# tidy up the dirty PubChem dose-response data (filthy)
+R < tidy_data.r --no-save
+
+# run script that takes data (tidy format) as input
+# and uses DRC package to fit and plot dose-response
+# curves
+R < plot_drc_15cpds_multi_v1.5.R --no-save
