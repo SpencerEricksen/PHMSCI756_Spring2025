@@ -1,0 +1,10 @@
+O=C(O)C[C@@H]1S\C(=N\N=Cc2ccc(-c3ccc(Cl)cc3[N+](=O)[O-])o2)NC1=O ZINC000254487630
+O=C(O)C[C@H]1S\C(=N\N=Cc2ccc(-c3ccc(Cl)cc3[N+](=O)[O-])o2)NC1=O ZINC000254487629
+O=C(O)C[C@@H]1S\C(=N\N=Cc2ccc(-c3ccccc3[N+](=O)[O-])o2)NC1=O ZINC000254449108
+O=C(O)C[C@H]1S\C(=N\N=Cc2ccc(-c3ccccc3[N+](=O)[O-])o2)NC1=O ZINC000254449101
+Cc1ccc(-c2ccc(C=N\N=C3/NC(=O)[C@@H](CC(=O)O)S3)o2)c([N+](=O)[O-])c1 ZINC000254382478
+Cc1ccc(-c2ccc(C=N\N=C3/NC(=O)[C@H](CC(=O)O)S3)o2)c([N+](=O)[O-])c1 ZINC000254382475
+Cc1ccc(-c2ccc(\C=N\N=C3/NC(=O)[C@@H](CC(=O)O)S3)o2)c([N+](=O)[O-])c1 ZINC000016115038
+O=C(O)C[C@@H]1SC(N\N=C\c2ccc(-c3ccc(Cl)cc3[N+](=O)[O-])o2)=NC1=O ZINC000006974368
+O=C(O)C[C@H]1SC(N\N=C\c2ccc(-c3ccc(Cl)cc3[N+](=O)[O-])o2)=NC1=O ZINC000008671124
+O=C(O)C[C@@H]1S\C(=N\N=C\c2ccc(-c3ccc(Cl)c([N+](=O)[O-])c3)o2)NC1=O ZINC000016115676

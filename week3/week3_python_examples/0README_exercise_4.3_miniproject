@@ -1,0 +1,53 @@
+# 1. merge re-test data and dump top 40 cpds in SMILES format
+python week3_clean_merge_sort.py
+# input: 'AID_1558_datatable_week3_exercise.csv', 'AID_1559_datatable_week3_exercise.csv', 'AID_1694_datatable_week3_exercise.csv'
+# output: 'merged_retest_data.csv', 'top40_retest_cpds_sorted.smi'
+
+
+
+# 2. submit top40 SMILES to chemmine server for clustering 
+# input: 'top40_retest_cpds_sorted.smi'
+# output: 'chemmine_clustering_top40.csv'
+
+
+
+# 3. submit top40 SMILES to swissADME server for ADME params
+# input: 'top40_retest_cpds_sorted.smi'
+# output: 'top40_swissadme.csv'
+
+
+
+# 4. merge clustering and ADME data to merged assay data
+python merge_in_swissadme_clusters.py
+# input: 'merged_retest_data.csv', 'chemmine_clustering_top40.csv', 'top40_swissadme.csv'
+# output: 'top40_merged_retest_clust_adme.csv'
+
+
+
+# 5. run SmallWorld search for each of the 3 PUBCHEM molecules you want to advance
+# search ZINC purchasable (1.6B) using SmallWorld https://sw.docking.org/search.html
+# download .tsv (tab-delimited data files)
+
+
+
+# 6. run this script to process the tab-delimited files you downloaded from SmallWorld
+python clean_smallworlds_matches.py smallworld-results-1680712496020_CID25181377.tsv CID25181377_sw_matches.smi
+python clean_smallworlds_matches.py smallworld-results-1680712586655_CID135500895.tsv CID135500895_sw_matches.smi
+python clean_smallworlds_matches.py smallworld-results-1680712735959_CID2790671.tsv CID2790671_sw_matches.smi
+# this outputs SMILES files of the ZINC matches to submit to swissadme to get BBB, PAINS, and Lipinski params for analogs
+# this also dumps a clean CSV with top 10 matches from SmallWorld with Tanimoto distances to query
+
+
+
+# 7. get vendors for ZINC cpd analogs for your PUBCHEM_CID candidate query
+python get_vendor_data_from_zinc.py smallworld-results-1680712496020_CID25181377.csv CID25181377_analogs_vendors.csv
+python get_vendor_data_from_zinc.py smallworld-results-1680712586655_CID135500895.csv CID135500895_analogs_vendors.csv
+python get_vendor_data_from_zinc.py smallworld-results-1680712735959_CID2790671.csv CID2790671_analogs_vendors.csv
+
+
+
+# 8. do final merge ( SmallWorld matched analogs SMILES/distance dataframe +  vendor dataframe +  ADME dataframe
+python final_merge_analogs.py CID2790671_analogs_vendors.csv smallworld-results-1680712735959_CID2790671.csv swissadme_CID2790671_sw_matches.csv CID2790671_analogs_merged.csv
+python final_merge_analogs.py CID25181377_analogs_vendors.csv smallworld-results-1680712496020_CID25181377.csv swissadme_CID25181377_sw_matches.csv CID25181377_analogs_merged.csv
+python final_merge_analogs.py CID135500895_analogs_vendors.csv smallworld-results-1680712586655_CID135500895.csv swissadme_CID135500895_sw_matches.csv CID135500895_analogs_merged.csv
+

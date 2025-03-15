@@ -1,0 +1,5 @@
+# copy the fields PUBCHEM_CID	PUBCHEM_EXT_DATASOURCE_SMILES from an AID for top 20 cpds listed
+# paste into a text file
+
+# re-arrange columns so molid are second field and SMILES string is first field, make sure smiles are space delimitd
+cat test_smiles_from_aid1559.txt | awk '{print $2" "$1}' > test_smiles_from_aid1559.smi
